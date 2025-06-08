@@ -1,11 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Central</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Página Web - Hospital</h1>
+  <script src="script.js"></script>
+
+  <!-- Enlace para saltar al contenido principal -->
+  <a href="#citas" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Hospital Central</h1>
+
+      <!-- Botón hamburguesa solo visible en móvil 
+      <button class="menu-toggle" aria-label="Abrir menú" aria-controls="menu" aria-expanded="false">
+        ☰
+      </button>
+
+      Menú de navegación -->
+      <nav>
+        <ul id="menu" class="nav-links">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#citas">Citas</a></li>
+          <li><a href="#">Información</a></li>
+          <li><a href="#">Áreas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+
+  <main id="contenido-principal" role="main">
+    <section class="hero" aria-labelledby="titulo-hero">
+      <div class="hero-content">
+        <h2 id="titulo-hero">Tu bienestar es nuestra prioridad</h2>
+        <p>Atención médica accesible, segura y<br>profesional para todos</p>
+        <div class="buttons">
+          <button class="primary" aria-label="Agendar una cita médica">Agendar cita médica</button>
+          <button class="secondary" aria-label="Obtener más información sobre el hospital">Más Información</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" class="nosotros-section" aria-labelledby="titulo-nosotros">
+      <div class="nosotros-container">
+        <div class="nosotros-texto">
+          <h2 id="titulo-nosotros">Nosotros</h2>
+          <p>
+            Somos un hospital que prioriza la salud accesible, humana y eficiente. Nuestro equipo médico está altamente capacitado y comprometido con brindar una atención integral centrada en el bienestar de cada paciente.
+            <br><br>
+            Contamos con tecnología médica de última generación, lo que nos permite ofrecer diagnósticos precisos y tratamientos oportunos en diversas especialidades. Nuestro personal médico y administrativo trabaja con ética, empatía y profesionalismo, garantizando un entorno seguro, digno y respetuoso para todos.
+            <br><br>
+            Llevamos más de 20 años sirviendo a la comunidad, construyendo confianza a través de la transparencia, la mejora continua y el enfoque humano en cada consulta. Nuestro compromiso es contigo y con tu salud.
+          </p>
+        </div>
+        <div class="nosotros-imagenes">
+          <img src="/img/doctor1.jpg" alt="Doctor conversando con paciente en consulta" />
+          <img src="/img/doctor2.jpeg" alt="Doctor explicando resultados a una mujer adulta" />
+        </div>
+      </div>
+    </section>
+    <section id="citas" class="form-section" aria-labelledby="titulo-cita">
+      <div class="form-container">
+        <h2 id="titulo-cita">Agendar Cita</h2>
+        <form method="post" aria-describedby="descripcion-formulario">
+          <p id="descripcion-formulario" class="sr-only">
+            Formulario para agendar una cita médica. Todos los campos son obligatorios.
+          </p>
+
+          <div class="form-group">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required aria-required="true" />
+          </div>
+
+          <div class="form-group">
+            <label for="dni">DNI o Carnet de Extranjería</label>
+            <input type="number" id="dni" name="dni" required aria-required="true" />
+          </div>
+
+          <div class="form-group">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" required aria-required="true" />
+          </div>
+
+          <div class="form-group">
+            <label for="motivo">Motivo de cita:</label>
+            <textarea id="motivo" name="motivo" rows="4" required aria-required="true"></textarea>
+          </div>
+
+          <button type="button" id="confirmar" class="btn-form">Confirmar</button>
+        </form>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
