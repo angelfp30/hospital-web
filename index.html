@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <script src="script.js"></script>
-
   <!-- Enlace para saltar al contenido principal -->
   <a href="#citas" class="skip-link">Saltar al contenido principal</a>
 
@@ -19,7 +17,7 @@
     
       <nav>
         <ul id="menu" class="nav-links">
-          <li><a href="#">Inicio</a></li>
+          <li><a href="index.html">Inicio</a></li>
           <li><a href="#citas">Citas</a></li>
           <li><a href="#">Información</a></li>
           <li><a href="#">Áreas</a></li>
@@ -93,5 +91,24 @@
       </div>
     </section>
   </main>
+  
+  <div id="modalBienvenida" role="dialog" aria-modal="true" aria-labelledby="tituloModal" 
+     aria-describedby="contenidoModal" class="modal" style="display: none;">
+    <div class="modal-content" tabindex="-1">
+      <h2 id="tituloModal">Bienvenido, antes de ingresar...</h2>
+      <p id="contenidoModal">¿Cuenta con alguna discapacidad visual? Seleccione su grado o indique que no.</p>
+      
+      <div class="btn-modal-ctn">
+        <button class="btn-modal" onclick="cerrarModal('moderada')" aria-describedby="desc-f">Sí, moderada (Presionar tecla F)</button>
+        <button class="btn-modal" onclick="cerrarModal('grave')" aria-describedby="desc-j">Sí, grave (Presionar tecla J)</button>
+        <button class="btn-modal" onclick="cerrarModal('ninguna')">No cuento con discapacidad visual</button>
+      </div>
+
+      <p id="desc-f" class="sr-only">Presione la tecla F si su discapacidad es moderada</p>
+      <p id="desc-j" class="sr-only">Presione la tecla J si su discapacidad es grave</p>
+    </div>
+  </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
