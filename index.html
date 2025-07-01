@@ -65,25 +65,27 @@
           <p id="descripcion-formulario" class="sr-only">
             Formulario para agendar una cita médica. Todos los campos son obligatorios.
           </p>
-
-          <div class="form-group">
-            <label for="nombre">Nombre completo:</label>
-            <input type="text" id="nombre" name="nombre" required aria-required="true" />
-          </div>
-
+          
           <div class="form-group">
             <label for="dni">DNI o Carnet de Extranjería</label>
             <input type="number" id="dni" name="dni" required aria-required="true" />
           </div>
 
           <div class="form-group">
-            <label for="correo">Correo electrónico</label>
-            <input type="email" id="correo" name="correo" required aria-required="true" />
+            <label for="telefono">Número de teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required aria-required="true" />
           </div>
 
           <div class="form-group">
-            <label for="motivo">Motivo de cita:</label>
-            <textarea id="motivo" name="motivo" rows="4" required aria-required="true"></textarea>
+            <label for="area">Área médica</label>
+            <select id="area" name="area" required aria-required="true">
+              <option value="">Seleccione una opción</option>
+              <option>Medicina General</option>
+              <option>Cardiología</option>
+              <option>Pediatría</option>
+              <option>Ginecología</option>
+              <option>Laboratorio</option>
+            </select>
           </div>
 
           <button type="button" id="confirmar" class="btn-form">Confirmar</button>
@@ -108,7 +110,38 @@
       <p id="desc-j" class="sr-only">Presione la tecla J si su discapacidad es grave</p>
     </div>
   </div>
+  
 
-    <script src="script.js"></script>
+  <dialog id="formDialog" aria-labelledby="tituloDialogo">
+    <form method="dialog" id="formularioAccesible">
+      <h2 id="tituloDialogo">Formulario de cita médica</h2>
+
+      <div class="form-group">
+        <label for="dni2">DNI o Carnet de Extranjería</label>
+        <input type="number" id="dni2" name="dni2" required aria-required="true" />
+      </div>
+
+      <div class="form-group">
+        <label for="telefono2">Número de teléfono</label>
+        <input type="tel" id="telefono2" name="telefono2" required aria-required="true" />
+      </div>
+
+      <div class="form-group">
+        <label for="area2">Área médica</label>
+        <select id="area2" name="area2" required aria-required="true">
+          <option value="">Seleccione una opción</option>
+          <option>Medicina General</option>
+          <option>Cardiología</option>
+          <option>Pediatría</option>
+          <option>Ginecología</option>
+          <option>Laboratorio</option>
+        </select>
+      </div>
+
+      <button type="submit" id="enviarDialogo">Enviar</button>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
 </body>
 </html>
