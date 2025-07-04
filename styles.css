@@ -357,3 +357,65 @@ textarea {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+dialog#formDialog {
+  border: none;
+  border-radius: 12px;
+  padding: 2rem;
+  background-color: #ffffff;
+  color: #000;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 10000;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#formularioAccesible h2 {
+  font-size: 1.8rem;
+  color: #1461a3;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+#formularioAccesible .form-group {
+  margin-bottom: 1.5rem;
+}
+
+#formularioAccesible label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+#formularioAccesible input[type="text"],
+#formularioAccesible input[type="tel"],
+#formularioAccesible input[type="number"] {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+#formularioAccesible button[type="submit"] {
+  background-color: #1461a3;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+#formularioAccesible button[type="submit"]:hover,
+#formularioAccesible button[type="submit"]:focus {
+  background-color: #104b83;
+  outline: none;
+}

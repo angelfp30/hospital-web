@@ -93,10 +93,9 @@ function abrirFormulario() {
 function reproducirResumen() {
   const dni = document.getElementById('dni2').value.trim();
   const telefono = document.getElementById('telefono2').value.trim();
-  const area = document.getElementById('area2').value;
 
-  if (dni && telefono && area) {
-    const resumen = `Usted ha ingresado el DNI ${dni}, el número de teléfono ${telefono} y ha seleccionado el área de ${area}. Si esta información es correcta, pulse Enter o la barra espaciadora para confirmar y enviar.`;
+  if (dni && telefono) {
+    const resumen = `Usted ha ingresado el DNI ${dni}, el número de teléfono ${telefono}. Si esta información es correcta, pulse Enter o la barra espaciadora para confirmar y enviar.`;
     narracion(resumen);
     esperandoConfirmacion = true;
 
@@ -112,7 +111,7 @@ function reproducirResumen() {
 
     window.addEventListener('keydown', confirmarEnvio);
   } else {
-    narracion("No se puede confirmar. Asegúrese de haber llenado DNI, teléfono y área.");
+    narracion("No se puede confirmar. Asegúrese de haber llenado DNI y teléfono.");
   }
 }
 
