@@ -26,7 +26,9 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('keydown', activarNarracionUnaVez);
 });
 
-// Evento global para teclas F y J
+let esperandoConfirmacion = false;
+
+// Evento global para teclas F, J, R
 window.addEventListener('keydown', (e) => {
   const tecla = e.key.toLowerCase();
 
@@ -51,6 +53,11 @@ window.addEventListener('keydown', (e) => {
     iniciarDictado('telefono2');
   }
 
+  if (tecla === 'r') {
+    e.preventDefault();
+    reproducirResumen();
+  }
+
   if (e.key === 'Escape') {
     cerrarModal();
   }
@@ -66,7 +73,7 @@ function cerrarModal() {
 }
 
 function mensajeFormulario() {
-  const mensaje = 'Pulse F para iniciar dictado por voz y dicte los números de su DNI. Luego pulse J para dictar su número de teléfono.';
+  const mensaje = 'Pulse F para dictar su DNI. Pulse J para dictar su teléfono. Cuando haya terminado, pulse R para escuchar un resumen y confirmar su cita.';
   narracion(mensaje);
 }
 
@@ -82,32 +89,32 @@ function abrirFormulario() {
   }
 }
 
-// Envío del formulario dentro del <dialog>
-formularioDialogo.addEventListener('submit', (e) => {
-  e.preventDefault();
-
+// Función para reproducir resumen y esperar confirmación
+function reproducirResumen() {
   const dni = document.getElementById('dni2').value.trim();
   const telefono = document.getElementById('telefono2').value.trim();
   const area = document.getElementById('area2').value;
 
   if (dni && telefono && area) {
-    const resumen = `Usted ha ingresado el DNI ${dni}, el número de teléfono ${telefono} y ha seleccionado el área de ${area}. Si esta información es correcta, pulse Enter para confirmar y enviar.`;
+    const resumen = `Usted ha ingresado el DNI ${dni}, el número de teléfono ${telefono} y ha seleccionado el área de ${area}. Si esta información es correcta, pulse Enter o la barra espaciadora para confirmar y enviar.`;
     narracion(resumen);
+    esperandoConfirmacion = true;
 
-    // Esperar confirmación por tecla Enter
     const confirmarEnvio = (ev) => {
-      if (ev.key === 'Enter') {
+      if ((ev.key === 'Enter' || ev.key === ' ') && esperandoConfirmacion) {
+        ev.preventDefault();
         dialogoFormulario.close();
         narracion("Formulario enviado correctamente.");
+        esperandoConfirmacion = false;
         window.removeEventListener('keydown', confirmarEnvio);
       }
     };
 
     window.addEventListener('keydown', confirmarEnvio);
   } else {
-    narracion("Por favor, complete todos los campos.");
+    narracion("No se puede confirmar. Asegúrese de haber llenado DNI, teléfono y área.");
   }
-});
+}
 
 // Dictado por voz (SpeechRecognition)
 let escuchandoDictado = false;
@@ -136,7 +143,7 @@ function iniciarDictado(idCampo) {
 
   reconocimiento.onstart = () => {
     escuchandoDictado = true;
-    narracion("Dictado iniciado. Puede comenzar a hablar.");
+    narracion("Puede comenzar a hablar.");
   };
 
   reconocimiento.onerror = (event) => {
