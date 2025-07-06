@@ -1,3 +1,11 @@
+const formulario = document.getElementById('form-basico');
+const boton = document.getElementById('confirmar');
+
+formulario.addEventListener('submit', (e) => {
+  e.preventDefault(); // Evita el envío 
+  alert("Formulario capturado correctamente");
+});
+
 // Narrador de bienvenida
 function narracion(mensaje) {
   const habla = new SpeechSynthesisUtterance(mensaje);

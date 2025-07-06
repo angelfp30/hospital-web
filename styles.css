@@ -273,9 +273,7 @@ label {
   font-weight: bold;
 }
 
-input[type="text"],
 input[type="number"],
-input[type="email"],
 textarea {
   padding: 0.5rem;
   border: 1px solid #333;
@@ -417,5 +415,87 @@ dialog::backdrop {
 #formularioAccesible button[type="submit"]:hover,
 #formularioAccesible button[type="submit"]:focus {
   background-color: #104b83;
+  outline: none;
+}
+
+.areas-section {
+  background-color: #10588c;
+  padding: 3rem 1rem;
+  color: white;
+  text-align: center;
+}
+
+.areas-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.area-card {
+  background-color: #ffffff;
+  color: #003566;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.area-card:hover {
+  transform: translateY(-5px);
+}
+
+.area-card svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.8rem;
+}
+
+.area-card p {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.footer {
+  background-color: #0C1A2C;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1080px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  text-decoration: underline;
   outline: none;
 }
