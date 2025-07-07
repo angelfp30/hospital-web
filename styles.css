@@ -499,3 +499,8 @@ dialog::backdrop {
   text-decoration: underline;
   outline: none;
 }
+
+body.accesibilidad-moderada {
+  font-size: 1.25rem;
+  line-height: 1.8;
+}

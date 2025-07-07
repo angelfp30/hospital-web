@@ -7,9 +7,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Enlace para saltar al contenido principal -->
-  <a href="#citas" class="skip-link">Saltar al contenido principal</a>
-
   <header class="navbar">
     <div class="container">
       <h1 class="logo">Hospital Central</h1>
@@ -151,12 +148,12 @@
       
       <div class="btn-modal-ctn">
         <button class="btn-modal" onclick="cerrarModal('moderada')" aria-describedby="desc-f">Sí, grave (Presionar tecla F)</button>
-        <button class="btn-modal" onclick="cerrarModal('grave')" aria-describedby="desc-j">Sí, moderada (Presionar tecla J)</button>
+        <button class="btn-modal" onclick="activarModerada()" aria-describedby="desc-j">Sí, moderada (Presionar tecla J)</button>
         <button class="btn-modal" onclick="cerrarModal('ninguna')">No cuento con discapacidad visual</button>
       </div>
 
-      <p id="desc-f" class="sr-only">Presione la tecla F si su discapacidad es moderada</p>
-      <p id="desc-j" class="sr-only">Presione la tecla J si su discapacidad es grave</p>
+      <p id="desc-f" class="sr-only">Presione la tecla J si su discapacidad es moderada</p>
+      <p id="desc-j" class="sr-only">Presione la tecla F si su discapacidad es grave</p>
     </div>
   </div>
   

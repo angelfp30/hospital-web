@@ -6,6 +6,11 @@ formulario.addEventListener('submit', (e) => {
   alert("Formulario capturado correctamente");
 });
 
+function activarModerada() {
+  document.body.classList.add('accesibilidad-moderada');
+  cerrarModal();
+}
+
 // Narrador de bienvenida
 function narracion(mensaje) {
   const habla = new SpeechSynthesisUtterance(mensaje);
